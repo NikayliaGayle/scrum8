@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="everything">
+        <div class="card flex-row" >
+            {% set photo = product[3] %}
+            
+            <img class=class="card-img-sm-left" src="{{ photo }}" alt="Card image" width="470" height="490">
+              
+            <div class="card-body">
+                <h5  class="card-title"> {{ product[0] }}</h5>
+                <div class="d-flex justify-content-start">
+                    <span class = "price"><h6>  {{ '$'~product[2]}}</h6></span> 
+                </div>
+    
+                <p class="card-text">
+                    {{product[1] }}
+                </p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+      
+{% endblock %}

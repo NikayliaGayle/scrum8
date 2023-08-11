@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="title">Products</h1>
+<div class="properties">
+    {% for product in products%}
+        <div class = "grids">
+        <div class="card text-left" style="width: 18rem;">
+            {% set pic= product[3] %}
+            {% set id=product[4] %}
+            <img class="card-img-top" src="{{ pic }}" width="250" height="200">
+            <div class="card-body">
+                <h5 class="card-title">{{ product[0] }}</h5>
+            </div>
+            <div class="card-body">
+                {{ product[1] }}
+                <br>
+                <div class="d-flex justify-content-start"><span class = "price"><h6> {{ '$'~product[2] }}</h6></div></span>
+            </div>   
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href= "{{ url_for('specific',product_id=id) }}" id ="btn" class="btn btn-lg btn-primary">View Product</a>
+                </div>
+            </div>
+        </div>
+    </div> 
+    {% endfor %}  
+    
+</div>
+{% endblock %}
